@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fakultas Ekonomi dan Budaya</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body style="background-color: #efefef">
+    <!-- Navbar -->
+    <div
+      class="container-fluid d-flex justify-content-end"
+      style="background-color: #930909; color: #fff"
+    >
+      <div class="row">
+        <div
+          class="d-flex justify-content-between align-items-center"
+          style="background-color: #343434; padding: 0.5rem"
+        >
+          <a href="/login-mahasiswa" class="login">Login Mahasiswa</a>
+          <div class="">|</div>
+          <a href="/login-dosen" class="login">Login Dosen</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navbar  -->
+    <nav
+      class="navbar navbar-expand-lg shadow-sm"
+      style="background-color: #fff"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <img
+            src="./assets/images/logo feb fix.png"
+            alt=""
+            width="80"
+            height="60"
+            class="d-inline-block align-text-top"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item ms-3" style="font-weight: 600">
+              <a
+                class="nav-link {{ Request::is('/') ? 'active-nav' : '' }}"
+                href="/"
+                >Beranda</a
+              >
+            </li>
+            <li class="nav-item ms-3 dropdown" style="font-weight: 600">
+              <a
+                class="nav-link dropdown-toggle {{ Request::is('akuntansi') ? 'active-nav' : '' }} {{ Request::is('manajemen') ? 'active-nav' : '' }} {{ Request::is('perbankan-syariah') ? 'active-nav' : '' }}"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Program Studi
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a
+                    class="dropdown-item {{ Request::is('manajemen') ? 'active-drop' : '' }}"
+                    href="/manajemen"
+                    >Manajemen</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item {{ Request::is('akuntansi') ? 'active-drop' : '' }}"
+                    href="/akuntansi"
+                    >Akuntasi</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item {{ Request::is('perbankan-syariah') ? 'active-drop' : '' }}"
+                    href="/perbankan-syariah"
+                    >Perbankan Syariah</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item ms-3 dropdown" style="font-weight: 600">
+              <a
+                class="nav-link dropdown-toggle {{ Request::is('pelayanan-mahasiswa') ? 'active-nav' : '' }} {{ Request::is('pembayaran-mahasiswa') ? 'active-nav' : '' }}"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Layanan
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a
+                    class="dropdown-item {{ Request::is('pelayanan-mahasiswa') ? 'active-drop' : '' }}"
+                    href="/pelayanan-mahasiswa"
+                    >Mahasiswa</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item {{ Request::is('pembayaran-mahasiswa') ? 'active-drop' : '' }}"
+                    href="/pembayaran-mahasiswa"
+                    >Pembayaran Mahasiswa</a
+                  >
+                </li>
+                <li><a class="dropdown-item" href="#">Perpustakaan</a></li>
+                <li><a class="dropdown-item" href="#">File Unduhan</a></li>
+              </ul>
+            </li>
+            <li class="nav-item ms-3 dropdown" style="font-weight: 600">
+              <a
+                class="nav-link dropdown-toggle {{ Request::is('sejarah-feb') ? 'active-nav' : '' }} {{ Request::is('visi-misi-feb') ? 'active-nav' : '' }} {{ Request::is('struktur-organisasi') ? 'active-nav' : '' }}"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Profil
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a
+                    class="dropdown-item {{ Request::is('sejarah-feb') ? 'active-drop' : '' }}"
+                    href="/sejarah-feb"
+                    >Sejarah Feb Unsiq</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item {{ Request::is('visi-misi-feb') ? 'active-drop' : '' }}"
+                    href="/visi-misi-feb"
+                    >Visi, Misi, dan Tujuan</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item {{ Request::is('struktur-organisasi') ? 'active-drop' : '' }}"
+                    href="/struktur-organisasi"
+                    >Struktur Organisasi</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item ms-3" style="font-weight: 600">
+              <a class="nav-link" href="#">SPMI</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Akhir Navbar -->
+
+    <!-- Hero -->
+    <div
+      id="carousel-banner"
+      class="carousel slide"
+      data-bs-ride="true"
+      style="position: relative"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="./assets/images/BANNER1.png" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item">
+          <img src="./assets/images/BANNER2.png" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item">
+          <img src="./assets/images/BANNER3.png" class="d-block w-100" alt="..." />
+        </div>
+      </div>
+      <div class="carousel-indicators" style="position: relative">
+        <button
+          type="button"
+          data-bs-target="#carousel-banner"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carousel-banner"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carousel-banner"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carousel-banner"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carousel-banner"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- Akhir Hero -->
+    <!-- Visi -->
+    <section class="visi mt-5">
+      <div class="container-lg">
+        <div class="row">
+          <div class="col-lg-5 mb-4">
+            <img
+              src="./assets/images/img.JPG"
+              class="img"
+              alt=""
+              style="height: 250px; width: 400px"
+            />
+          </div>
+          <div class="col-lg-2 d-flex justify-content-center">
+            <div class="vl"></div>
+          </div>
+          <div class="col-lg-5">
+            <h3>Visi</h3>
+            <p>
+              Menjadi Fakultas Ekonomi dan Bisnis yang menjunjung nilai-nilai
+              Islam dan unggul dibidang Kewirausahaan pada Tahun 2031.
+            </p>
+            <a href="/visi-misi-feb" class="red">Selengkapnya</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Akhir Visi -->
+    <!--  Pengumuman -->
+    <section class="pengumuman mt-5">
+      <div class="container-fluid bg-white">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-10">
+            <div class="row">
+              <div class="separator mt-3">
+                <h2>Pengumuman</h2>
+                <div class="line"></div>
+              </div>
+            </div>
+            <div
+              id="carousel-pengumuman"
+              class="carousel slide"
+              data-bs-ride="carousel"
+              style="position: relative"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="1000">
+                  <div class="row mt-5 ms-5 d-flex justify-content-between">
+                    <div class="col-lg-5">
+                      <div class="card border-0" style="width: 25rem">
+                        <img
+                          class="card-img-top"
+                          src="./assets/images/img.JPG"
+                          alt="image berita"
+                          style="height: 200px"
+                        />
+                        <div class="card-body">
+                          <p class="card-text">
+                            Kegiatan Study Tour FEB UNSIQ di Berlin,Jerman Untuk
+                            meningkatkan antusias Mahasiswa dalam bidang
+                            Informasi
+                          </p>
+                          <span class="d-block text-secondary"
+                            >30 Februari 2022</span
+                          >
+                          <a href="/pengumuman" class="berita">Selengkapnya</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="card border-0" style="width: 25rem">
+                        <img
+                          class="card-img-top"
+                          src="./assets/images/img.JPG"
+                          alt="image berita"
+                          style="height: 200px"
+                        />
+                        <div class="card-body">
+                          <p class="card-text">
+                            Kegiatan Study Tour FEB UNSIQ di Berlin,Jerman Untuk
+                            meningkatkan antusias Mahasiswa dalam bidang
+                            Informasi
+                          </p>
+                          <span class="d-block text-secondary"
+                            >30 Februari 2022</span
+                          >
+                          <a href="/pengumuman" class="berita">Selengkapnya</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                  <div class="row mt-5 ms-5 d-flex justify-content-between">
+                    <div class="col-lg-5">
+                      <div class="card border-0" style="width: 25rem">
+                        <img
+                          class="card-img-top"
+                          src="./assets/images/img.JPG"
+                          alt="image berita"
+                          style="height: 200px"
+                        />
+                        <div class="card-body">
+                          <p class="card-text">
+                            Kegiatan Study Tour FEB UNSIQ di Berlin,Jerman Untuk
+                            meningkatkan antusias Mahasiswa dalam bidang
+                            Informasi
+                          </p>
+                          <span class="d-block text-secondary"
+                            >30 Februari 2022</span
+                          >
+                          <a href="/pengumuman" class="berita">Selengkapnya</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="card border-0" style="width: 25rem">
+                        <img
+                          class="card-img-top"
+                          src="./assets/images/img.JPG"
+                          alt="image berita"
+                          style="height: 200px"
+                        />
+                        <div class="card-body">
+                          <p class="card-text">
+                            Kegiatan Study Tour FEB UNSIQ di Berlin,Jerman Untuk
+                            meningkatkan antusias Mahasiswa dalam bidang
+                            Informasi
+                          </p>
+                          <span class="d-block text-secondary"
+                            >30 Februari 2022</span
+                          >
+                          <a href="/pengumuman" class="berita">Selengkapnya</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="row mt-5 ms-5 d-flex justify-content-between">
+                    <div class="col-lg-5">
+                      <div class="card border-0" style="width: 25rem">
+                        <img
+                          class="card-img-top"
+                          src="./assets/images/img.JPG"
+                          alt="image berita"
+                          style="height: 200px"
+                        />
+                        <div class="card-body">
+                          <p class="card-text">
+                            Kegiatan Study Tour FEB UNSIQ di Berlin,Jerman Untuk
+                            meningkatkan antusias Mahasiswa dalam bidang
+                            Informasi
+                          </p>
+                          <span class="d-block text-secondary"
+                            >30 Februari 2022</span
+                          >
+                          <a href="/pengumuman" class="berita">Selengkapnya</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="card border-0" style="width: 25rem">
+                        <img
+                          class="card-img-top"
+                          src="./assets/images/img.JPG"
+                          alt="image berita"
+                          style="height: 200px"
+                        />
+                        <div class="card-body">
+                          <p class="card-text">
+                            Kegiatan Study Tour FEB UNSIQ di Berlin,Jerman Untuk
+                            meningkatkan antusias Mahasiswa dalam bidang
+                            Informasi
+                          </p>
+                          <span class="d-block text-secondary"
+                            >30 Februari 2022</span
+                          >
+                          <a href="/pengumuman" class="berita">Selengkapnya</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-indicators mt-5" style="position: relative">
+                <button
+                  type="button"
+                  data-bs-target="#carousel-pengumuman"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carousel-pengumuman"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carousel-pengumuman"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Akhir Pengumuman -->
+    <!--  Berita Terkini-->
+    <section class="berita-section mt-5">
+      <div class="container-fluid p-4" style="background-color: #fff">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-10">
+            <div class="row">
+              <div class="separator mt-3">
+                <h2>Berita Terkini</h2>
+                <div class="line"></div>
+              </div>
+            </div>
+            <div
+              id="carousel-berita"
+              class="carousel slide"
+              data-bs-ride="carousel"
+              style="position: relative"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="1000">
+                  <div class="row mt-5 ms-5 d-flex justify-content-between">
+                    <div class="col-lg-5">
+                      <div class="card border-0" style="width: 25rem">
+                        <img
+                          class="card-img-top"
+                          src="./assets/images/img.JPG"
+                          alt="image berita"
+                          style="height: 200px"
+                        />
+                        <div class="card-body">
+                          <p class="card-text">
+                            Kegiatan Study Tour FEB UNSIQ di Berlin,Jerman Untuk
+                            meningkatkan antusias Mahasiswa dalam bidang
+                            Informasi
+                          </p>
+                          <span class="d-block text-secondary"
+                            >30 Februari 2022</span
+                          >
+                          <a href="/berita" class="berita">Selengkapnya</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="card border-0" style="width: 25rem">
+                        <img
+                          class="card-img-top"
+                          src="./assets/images/img.JPG"
+                          alt="image berita"
+                          style="height: 200px"
+                        />
+                        <div class="card-body">
+                          <p class="card-text">
+                            Kegiatan Study Tour FEB UNSIQ di Berlin,Jerman Untuk
+                            meningkatkan antusias Mahasiswa dalam bidang
+                            Informasi
+                          </p>
+                          <span class="d-block text-secondary"
+                            >30 Februari 2022</span
+                          >
+                          <a href="/berita" class="berita">Selengkapnya</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                  <div class="row mt-5 ms-5 d-flex justify-content-between">
+                    <div class="col-lg-5">
+                      <div class="card border-0" style="width: 25rem">
+                        <img
+                          class="card-img-top"
+                          src="./assets/images/img.JPG"
+                          alt="image berita"
+                          style="height: 200px"
+                        />
+                        <div class="card-body">
+                          <p class="card-text">
+                            Kegiatan Study Tour FEB UNSIQ di Berlin,Jerman Untuk
+                            meningkatkan antusias Mahasiswa dalam bidang
+                            Informasi
+                          </p>
+                          <span class="d-block text-secondary"
+                            >30 Februari 2022</span
+                          >
+                          <a href="/berita" class="berita">Selengkapnya</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="card border-0" style="width: 25rem">
+                        <img
+                          class="card-img-top"
+                          src="./assets/images/img.JPG"
+                          alt="image berita"
+                          style="height: 200px"
+                        />
+                        <div class="card-body">
+                          <p class="card-text">
+                            Kegiatan Study Tour FEB UNSIQ di Berlin,Jerman Untuk
+                            meningkatkan antusias Mahasiswa dalam bidang
+                            Informasi
+                          </p>
+                          <span class="d-block text-secondary"
+                            >30 Februari 2022</span
+                          >
+                          <a href="/berita" class="berita">Selengkapnya</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="row mt-5 ms-5 d-flex justify-content-between">
+                    <div class="col-lg-5">
+                      <div class="card border-0" style="width: 25rem">
+                        <img
+                          class="card-img-top"
+                          src="./assets/images/img.JPG"
+                          alt="image berita"
+                          style="height: 200px"
+                        />
+                        <div class="card-body">
+                          <p class="card-text">
+                            Kegiatan Study Tour FEB UNSIQ di Berlin,Jerman Untuk
+                            meningkatkan antusias Mahasiswa dalam bidang
+                            Informasi
+                          </p>
+                          <span class="d-block text-secondary"
+                            >30 Februari 2022</span
+                          >
+                          <a href="/berita" class="berita">Selengkapnya</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="card border-0" style="width: 25rem">
+                        <img
+                          class="card-img-top"
+                          src="./assets/images/img.JPG"
+                          alt="image berita"
+                          style="height: 200px"
+                        />
+                        <div class="card-body">
+                          <p class="card-text">
+                            Kegiatan Study Tour FEB UNSIQ di Berlin,Jerman Untuk
+                            meningkatkan antusias Mahasiswa dalam bidang
+                            Informasi
+                          </p>
+                          <span class="d-block text-secondary"
+                            >30 Februari 2022</span
+                          >
+                          <a href="/berita" class="berita">Selengkapnya</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-indicators mt-5" style="position: relative">
+                <button
+                  type="button"
+                  data-bs-target="#carousel-berita"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carousel-berita"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carousel-berita"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Akhir Berita Terkini -->
+    <!--  Program Kami -->
+    <section class="program mt-5">
+      <div class="container-fluid p-4" style="background-color: #fff">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-10">
+            <div class="row">
+              <div class="separator mt-3">
+                <h2>Program Kami</h2>
+                <div class="line"></div>
+              </div>
+            </div>
+            <div class="row mt-5 ms-5 d-flex justify-content-between">
+              <div class="col-lg-5">
+                <div class="card border-0" style="width: 25rem">
+                  <div class="card-body">
+                    <div class="d-grid gap-2">
+                      <img
+                        class="card-img-top"
+                        src="./assets/images/img.JPG"
+                        alt="image pengumuman"
+                        style="height: 200px"
+                      />
+                      <a href="" class="btn btn-xl btn-base mt-3"
+                        >Class Exclusive</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5">
+                <div class="card border-0" style="width: 25rem">
+                  <div class="card-body">
+                    <div class="d-grid gap-2">
+                      <img
+                        class="card-img-top"
+                        src="./assets/images/img.JPG"
+                        alt="image pengumuman"
+                        style="height: 200px"
+                      />
+                      <a href="" class="btn btn-xl btn-base mt-3"
+                        >Class Karyawan</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Akhir Program Kami -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
